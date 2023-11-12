@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vc_assistant/commands_container.dart';
+import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueAccent[100],
       appBar: AppBar(
+        backgroundColor: Colors.blueAccent[100],
         leading: IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () {},
@@ -53,15 +56,13 @@ class _HomeState extends State<Home> {
             height: 20,
           ),
           // Ai Text Container
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: const Color.fromARGB(255, 185, 179, 179),
-              ),
-              borderRadius: BorderRadius.circular(5).copyWith(
-                topLeft: Radius.zero,
-              ),
-            ),
+          ShapeOfView(
+            shape: BubbleShape(
+                position: BubblePosition.Top,
+                arrowPositionPercent: 0.5,
+                borderRadius: 15,
+                arrowHeight: 10,
+                arrowWidth: 10),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Text(
@@ -81,30 +82,37 @@ class _HomeState extends State<Home> {
               child: Text(
                 'Here are few commands you can try: ',
                 style: GoogleFonts.montserrat(
-                  textStyle: const TextStyle(fontSize: 16),
+                  textStyle: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
           ),
           // CHAT GPT CONTAINER
           CommandsContainer(
-              commandTitle: "ChatGPT",
-              commandDetails:
-                  "A smarter way to stay organized and informed with ChatGPT."),
-          SizedBox(
-            height: 20,
+            commandTitle: "ChatGPT",
+            commandDetails:
+                "A smarter way to stay organized and informed with ChatGPT.",
+            bgColor: Colors.blue[100],
           ),
-          CommandsContainer(
-              commandTitle: "Dall-E",
-              commandDetails:
-                  'Get inspired and stay creative with your personel assistant powered by Dall-E.'),
           const SizedBox(
             height: 20,
           ),
           CommandsContainer(
-              commandTitle: "Smart Voice Assistant",
-              commandDetails:
-                  'Get the best of both worlds with a voice asisstan powered by Dall-E and ChatGPT.'),
+            commandTitle: "Dall-E",
+            commandDetails:
+                'Get inspired and stay creative with your personel assistant powered by Dall-E.',
+            bgColor: Colors.blue[200],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          CommandsContainer(
+            commandTitle: "Smart Voice Assistant",
+            commandDetails:
+                'Get the best of both worlds with a voice asisstan powered by Dall-E and ChatGPT.',
+            bgColor: Colors.blue[400],
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
