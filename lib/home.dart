@@ -198,14 +198,12 @@ class _HomeState extends State<Home> {
           } else if (stt.isListening) {
             var speech = await openAIServices.isAskingImg(
                 lastWords); // checkin what user wanted ? img : text.
-
             if (speech.contains("https")) {
               generatedImg = speech;
               generatedContent = null;
               setState(() {});
             } else {
               generatedContent = speech;
-
               generatedImg = null;
               await sysSpeak(speech);
               setState(() {});
