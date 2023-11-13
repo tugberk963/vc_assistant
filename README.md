@@ -10,8 +10,8 @@ Used Packages :
 - Animations - animate_do
 - Box Decoration - shape_of_view_null_safe 
 
-lib/services.dart
-  static const String apiKey = 'your-api-key-here'; // Insert your OpenAI api key here. 
+Inside -> lib/services.dart
+- static const String apiKey = 'your-api-key-here'; // Insert your OpenAI api key here. 
 
 To - Do:
 - App is generally finished but will change the color palette
