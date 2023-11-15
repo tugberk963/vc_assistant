@@ -183,7 +183,7 @@ class _HomeState extends State<Home> {
             height: 20,
           ),
           SlideInLeft(
-            delay: Duration(milliseconds: animate_start * 7),
+            delay: Duration(milliseconds: animate_start * 8),
             child: Visibility(
               visible: generatedContent == null && generatedImg == null,
               child: CommandsContainer(
