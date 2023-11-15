@@ -13,5 +13,16 @@ Used Packages :
 Inside -> lib/services.dart
 - static const String apiKey = 'your-api-key-here'; // Insert your OpenAI api key here. 
 
-To - Do:
-- App is generally finished but will change the color palette
+General UI :
+
+![](https://github.com/tugberk963/vc_assistant/blob/tugberk963/ava.png)
+
+> Voice Input : "Tell me about Pikachu"
+Apps Response:
+
+![](https://github.com/tugberk963/vc_assistant/blob/tugberk963/ava1.png)
+
+> Voice Input : "Draw the Pikachu but it is a capybara"
+Apps Response:
+
+![](https://github.com/tugberk963/vc_assistant/blob/tugberk963/ava2.png)
