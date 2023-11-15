@@ -75,9 +75,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueAccent[100],
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.blueAccent[100],
+        backgroundColor: Colors.white,
         leading: IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () {},
@@ -99,19 +99,23 @@ class _HomeState extends State<Home> {
           // Ai Text Container
           Visibility(
             visible: generatedImg == null,
-            child: ShapeOfView(
-              shape: BubbleShape(
-                  position: BubblePosition.Top,
-                  arrowPositionPercent: 0.5,
-                  borderRadius: 15,
-                  arrowHeight: 10,
-                  arrowWidth: 10),
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Text(
-                  generatedContent ?? "Hi, I'm A.V.A. your virtual assistant.",
-                  style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(fontSize: 18),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ShapeOfView(
+                shape: BubbleShape(
+                    position: BubblePosition.Top,
+                    arrowPositionPercent: 0.5,
+                    borderRadius: 15,
+                    arrowHeight: 10,
+                    arrowWidth: 10),
+                child: Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Text(
+                    generatedContent ??
+                        "Hi, I'm A.V.A. your virtual assistant. Try some commands below to get started.",
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
                   ),
                 ),
               ),
@@ -147,14 +151,15 @@ class _HomeState extends State<Home> {
             ),
           ),
           // CHAT GPT CONTAINER
+          SizedBox(height: 15,),
           SlideInLeft(
-            delay: Duration(milliseconds: animate_start*3),
+            delay: Duration(milliseconds: animate_start * 3),
             child: Visibility(
               visible: generatedContent == null && generatedImg == null,
               child: CommandsContainer(
                 commandTitle: "ChatGPT",
                 commandDetails:
-                    "A smarter way to stay organized and informed with ChatGPT.",
+                    "Boost productivity with ChatGPT's advanced organization and information management.",
                 bgColor: Colors.blue[100],
               ),
             ),
@@ -163,14 +168,14 @@ class _HomeState extends State<Home> {
             height: 20,
           ),
           SlideInLeft(
-            delay: Duration(milliseconds: animate_start*5),
+            delay: Duration(milliseconds: animate_start * 5),
             child: Visibility(
               visible: generatedContent == null && generatedImg == null,
               child: CommandsContainer(
                 commandTitle: "Dall-E",
                 commandDetails:
-                    'Get inspired and stay creative with your personel assistant powered by Dall-E.',
-                bgColor: Colors.blue[200],
+                    'Ignite your creativity and stay inspired with your personal assistant powered by DALL·E.',
+                bgColor: Colors.blue[100],
               ),
             ),
           ),
@@ -178,14 +183,14 @@ class _HomeState extends State<Home> {
             height: 20,
           ),
           SlideInLeft(
-            delay: Duration(milliseconds: animate_start*7),
+            delay: Duration(milliseconds: animate_start * 7),
             child: Visibility(
               visible: generatedContent == null && generatedImg == null,
               child: CommandsContainer(
                 commandTitle: "Smart Voice Assistant",
                 commandDetails:
-                    'Get the best of both worlds with a voice asisstan powered by Dall-E and ChatGPT.',
-                bgColor: Colors.blue[400],
+                    "Experience the ultimate blend of innovation with a voice assistant powered by DALL·E and ChatGPT",
+                bgColor: Colors.blue[100],
               ),
             ),
           ),
@@ -197,7 +202,7 @@ class _HomeState extends State<Home> {
             await startListening();
           } else if (stt.isListening) {
             var speech = await openAIServices.isAskingImg(
-                lastWords); // checkin what user wanted ? img : text.
+                lastWords); 
             if (speech.contains("https")) {
               generatedImg = speech;
               generatedContent = null;

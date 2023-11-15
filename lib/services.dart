@@ -4,8 +4,7 @@ import "dart:convert";
 class OpenAIServices {
   final List<Map<String, String>> messages = []; // creating a list of maps to store messages. 
 
-  static const String apiKey =
-      'your-api-key-here';
+  static const String apiKey = 'your-api-key-here';
 
   Future<String> isAskingImg(prompt) async {
     try {
